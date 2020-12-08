@@ -19,18 +19,6 @@ Guaranteed constraints:
 [output] string
 
 The resulting string after replacing each of its characters.
-'''
-def alphabeticShift(inputString):
-
-    for i, character in enumerate(inputString):
-        if character == 'z':
-            x = (inputString[i]).replace(f'{character}','a')
-            print(x)
-        else:
-            (inputString[i]).replace(inputString[i],chr(ord(inputString[i]))),
-
-    return inputString
-
 # not work yet ! 
 # def alphabeticShift(inputString):
 
@@ -42,4 +30,41 @@ def alphabeticShift(inputString):
 #             y = (inputString[i]).replace(inputString, (inputString[i] + 1)),
 #             print(y)
 #     return inputString
+'''
+def alphabeticShift(inputString):
+
+    for i, character in enumerate(inputString):
+
+        if character == 'z':
+            charsToNumberList = [ord(i)+1 for i in inputString]
+            # print(charsToNumberList)
+
+        else:
+            y = "".join([chr(ord(i)+1) for i in inputString])
+            x = y.replace("{", "a")
+    return x
+'''
+this is second solution : 
+-----------------------
+
+def alphabeticShift(inputString):
+    new_inputString = ''
+    for i, character in enumerate(inputString):
+         if character == 'z':
+             new_inputString += 'a'
+         else:
+             new_inputString += chr(ord(inputString[i])+1)
+     return new_inputString 
+     
+-----------------------
+'''
+
+'''
+INPUT to test for OUTPUT:
+'''
+inputString = ["c","r","a","z","y"]
+# inputString = ["s","c","h","o","o","l"]
+# inputString = ["y", "v", "e", "t", "t", "e"]
+
+print(alphabeticShift(inputString))
 
